@@ -1,9 +1,6 @@
 <div class="container mt-3">
     <h2>Juegos de Play Station 4 !</h2>
     <p>Lista de los juegos mas destacados!</p>  
-    <h2>
-        Iniciar busqueda <input type="text" [(ngModel)]="filtro" >
-    </h2> 
 
     <table class="table table-striped">
          
@@ -17,25 +14,53 @@
       </thead>
       <tbody>
         @for (juego of juegos; track juego){
-            @if(juego.id == +filtro){
         <tr>
           <td>{{juego.id}}</td>
           <td>{{juego.nombre}}</td>
           <td>{{juego.precio}}</td>  
           <td><button [routerLink]="['/detalles', juego.id]">detalles</button></td>   
         </tr>
-        }
-        
     }
+
+    <h4>
+      Iniciar busqueda <input type="text" [(ngModel)]="filtro" >
+      @for (juego of juegos; track juego){
+      @if(juego.id == +filtro){
+        <tr>
+          <td>{{juego.id}}</td>
+          <td>{{juego.nombre}}</td>
+          <td><button [routerLink]="['/detalles', juego.id]">detalles</button></td>   
+        </tr>
+        }
+      }
+  </h4> 
+
     <h3>
-        Ingresar el precio del producto: <input type="text" [(ngModel)]="cantidad"/>
-    </h3>
-    
-    
-    
-    
-    
-      </tbody>
+      Filtrar por precio menor: <input type="text" [(ngModel)]="cantidadMenor"/>
+      @for (juego of juegos; track juego){
+        @if(juego.precio < +cantidadMenor || juego.precio == +cantidadMenor){
+          <tr>
+            <td>{{juego.id}}</td>
+            <td>{{juego.nombre}}</td>
+            <td><button [routerLink]="['/detalles', juego.id]">detalles</button></td>   
+          </tr>
+          }
+        }
+  </h3>
+
+  <h3>
+    Filtrar por precio máximo: <input type="text" [(ngModel)]="cantidadMayor"/>
+    @for (juego of juegos; track juego){
+      @if(juego.precio > +cantidadMayor || juego.precio == +cantidadMayor){
+        <tr>
+          <td>{{juego.id}}</td>
+          <td>{{juego.nombre}}</td>
+          <td><button [routerLink]="['/detalles', juego.id]">detalles</button></td>   
+        </tr>
+        }
+      }
+</h3>
+    </tbody>
     </table>
   </div>
   

@@ -41,5 +41,6 @@ export class TablaComponent {
 
   filtro = 0;
 
-  cantidad = 0;
+  cantidadMayor = 50;
+  cantidadMenor = 0;
 }
