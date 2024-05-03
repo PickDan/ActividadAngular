@@ -43,4 +43,5 @@ export class TablaComponent {
 
   cantidadMayor = 50;
   cantidadMenor = 0;
+  a = '@'
 }

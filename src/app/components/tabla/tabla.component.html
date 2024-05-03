@@ -23,7 +23,7 @@
     }
 
     <h4>
-      Iniciar busqueda <input type="text" [(ngModel)]="filtro" >
+      Iniciar busqueda por ID:<input type="text" [(ngModel)]="filtro" >
       @for (juego of juegos; track juego){
       @if(juego.id == +filtro){
         <tr>
@@ -36,7 +36,7 @@
   </h4> 
 
     <h3>
-      Filtrar por precio menor: <input type="text" [(ngModel)]="cantidadMenor"/>
+      Filtrar por precio menor a: <input type="text" [(ngModel)]="cantidadMenor"/>
       @for (juego of juegos; track juego){
         @if(juego.precio < +cantidadMenor || juego.precio == +cantidadMenor){
           <tr>
@@ -49,7 +49,7 @@
   </h3>
 
   <h3>
-    Filtrar por precio máximo: <input type="text" [(ngModel)]="cantidadMayor"/>
+    Filtrar por precio mayor a: <input type="text" [(ngModel)]="cantidadMayor"/>
     @for (juego of juegos; track juego){
       @if(juego.precio > +cantidadMayor || juego.precio == +cantidadMayor){
         <tr>
